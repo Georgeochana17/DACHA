@@ -14,6 +14,13 @@ session_start();
 	<title>My website</title>
 </head>
 <body>
+<style type="text/css">
+	body {
+            padding: 150px;
+            margin: 0;
+            background: url('image.jpg') center center fixed;
+        }
+		</style>
 
 	<a href="logout.php">Logout</a>
 	<h1>This is the index page</h1>
