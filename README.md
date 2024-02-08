@@ -1,36 +1,27 @@
-# Projektets Namn
+# DACHA - PHP Grundstruktur för Inloggning och Databasanvändning
 
-DACHA är en mapp som innehåller 6 filer för php. Det är en grund för arbetet där det ska kunna logga in och loggaut. Den är även kopplat till en database som heter DACHA
+DACHA-projektet är en grundläggande PHP-struktur med sex filer som syftar till att möjliggöra inloggning och loggning ut. Projektet är kopplat till en MySQL-databas med namnet DACHA.
 
 ## Installation
 
-För att kunan köra projketet. ska man först 
+För att köra projektet, följ dessa steg:
 
-innan man ska gita så ska man kunna göra en git pull för att få det nyaste versionen av projektet 
+1. Klona projektet från Git-repot:
+   ```bash
+   git clone <url till git-repositorie>
 
+## När du har klonat repon, gör följande för att lägga till och skicka upp dina ändringar:
 
-```
-git clone <url till git Repositorie>
+```bash
+git add .
+git commit -m "Din kommentar här"
+git push origin <branch>
+´´´
+## Komma igång
 
-git add . 
+1. Öppna XAMPP och starta MySQL-databasen och Apache-webbservern.
 
-git commit -m " kommentar"
+2. Gå till localhost/phpmyadmin i webbläsaren för att öppna PHPMyAdmin och hantera din databas.
 
-git push origin /branch
-
-```
-
-När man har  klonat repon så ska man kunna jobba med projektet. 
-
-open XAMPP MySQL database och apache web server 
-
-för att kunna gå in i phpmyadmin 
-
-skriv i webbläsaren localhost/phpmyadmin 
-
-för att kunan se projketet så skriver man localhost/DACHA02/login för att komma till login page
-
-start 
-
-
+3. Följ instruktionerna i dina PHP-filer för att konfigurera anslutningen till din databas.
 
