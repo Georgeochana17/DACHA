@@ -3,9 +3,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 session_start();
-
 include("connection.php");
 include("functions.php");
+
+// Visa meddelandet om det finns i sessionsvariabeln
+// Rensa success-meddelandet efter att ha visats
+if (isset($_SESSION['success_message'])) {
+    echo '<div style="text-align:center; font-size: 24px; color: green;">' . $_SESSION['success_message'] . '</div>';
+    unset($_SESSION['success_message']); // Rensa meddelandet efter att ha visats
+}
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
@@ -19,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if ($stmt->execute()) {
             // Data har lagrats i databasen
+            $_SESSION['success_message'] = "Tack! Din information har sparats.";
+
             header("Location: index.php");
             die;
         } else {
@@ -115,17 +125,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <h1>Fyll i formuläret</h1>
 
-    <form action= "formuler.php" method="post">
-        <label for="name">Namn:</label>
-        <input type="text" id="name" name="name" required>
+    <form action="formuler.php" method="post">
+    <label for="name">Namn:</label>
+    <input type="text" id="name" name="name" required>
 
-        <label for="email">E-post:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">E-post:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="message">Meddelande:</label>
-        <textarea id="message" name="message" required></textarea>
+    <label for="message">Meddelande:</label>
+    <textarea id="message" name="message" required></textarea>
 
-        <input type="submit" value="Skicka">
-    </form>
+    <label for="skatt">Hur mycket skatt betalar du:</label>
+    <textarea id="skatt" name="skatt" required></textarea>
+
+    <label for="bokforing">Har du fixat bokföring (ja eller nej):</label>
+    <textarea id="bokforing" name="bokforing" required></textarea>
+
+    <label for="utomlands">Har du skattas utomlands</label>
+    <textarea id="utomlands" name="utomlands" required></textarea>
+
+    <input type="submit" value="Skicka">
+</form>
+
 </body>
 </html>
