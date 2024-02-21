@@ -68,9 +68,9 @@
 </head>
 <body>
     <div class="menu">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="aboutus.php">About Us</a>
+        <a href="contact.php">Contact</a>
         <a href="logout.php">Logout</a>
     </div>
 
@@ -78,7 +78,7 @@
     <h1>This is the index page</h1>
 
     <div class="button-images">
-        <a href="#">
+        <a href="formuler.php">
             <img src="boföring.jpg" alt="Button 1">
             <p class="button_tex">Tryck här för att komma till formuläret </p>
         </a>
