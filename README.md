@@ -66,8 +66,7 @@ bli skriven. Se till att du har valt rätt branch!
 
 ## Kollaboration
 
-Det finns ingen specifik instruktion för hur man ska arbeta med övriga gruppmedlemmarna.  Vi rekommenderar att varje person tar sig tid att titta på kod.
-Det finns ingen specifik instruktion för hur man ska arbeta med kollaborationen men  man kan följa dessa steg:
+varje person tar sig tid att titta på kod.
 -   Vi har en `master` branch som är den "säkra" branchen. Allt som går in i denna branch måste vara klart att fungera 
 Det finns ingen specifik instruktion för hur man ska arbeta med andra personer.
 Man kan ju prata med varandra om man vill men det är också bra att ha en plan.
