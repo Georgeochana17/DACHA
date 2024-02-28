@@ -72,6 +72,8 @@
         <a href="aboutus.php">About Us</a>
         <a href="contact.php">Contact</a>
         <a href="logout.php">Logout</a>
+        <a href="show_answers.php">Show Answers</a>
+
     </div>
 
 	
@@ -98,5 +100,36 @@
             <p class="button_tex">Text for Button 4</p>
         </a>
     </div>
+    <?php
+include("connection.php"); // Inkludera din anslutningsfil här
+
+// Hämta den sparade informationen från databasen
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT name, email, message FROM information WHERE user_id = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Visa den sparade informationen
+if ($result->num_rows > 0) {
+    echo "<h2>Sparad information:</h2>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<p><strong>Namn:</strong> " . $row["name"] . "</p>";
+        echo "<p><strong>E-post:</strong> " . $row["email"] . "</p>";
+        echo "<p><strong>Meddelande:</strong> " . $row["message"] . "</p>";
+        echo "<hr>";
+    }
+} else {
+    echo "<p>Ingen sparad information hittades.</p>";
+}
+
+$stmt->close();
+$con->close();
+?>
+</body>
+</html>
+
+
 </body>
 </html>
