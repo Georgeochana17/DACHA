@@ -127,13 +127,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <h1>Fyll i formuläret</h1>
 
     <form action="formuler.php" method="post">
-    <label for="name">Namn:</label>
+    <label for="name">Företag:</label>
     <input type="text" id="name" name="name" required>
 
     <label for="email">E-post:</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="message">Meddelande:</label>
+    <label for="message">Försäljning utomlands?:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <label for="message">Löner?:</label>
     <textarea id="message" name="message" required></textarea>
 
     <!-- Hidden input for user_id -->

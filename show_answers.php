@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +8,28 @@
         /* CSS för att ändra bakgrundsfärgen till silver */
         body {
             background-color: silver;
+            font-family: Arial, sans-serif;
+        }
+
+        /* CSS för tabellen */
+        table {
+            width: 80%; /* Bredden på tabellen, justera vid behov */
+            margin: 20px auto; /* Centrera tabellen på sidan */
+            border-collapse: collapse; /* Kombinera gränser för att undvika mellanrum mellan celler */
+        }
+
+        th, td {
+            padding: 8px; /* Utfyllnad inuti varje cell */
+            border-bottom: 1px solid #ddd; /* Linje under varje rad */
+            text-align: left; /* Vänsterjustera texten */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Bakgrundsfärg för rubrikerna */
         }
     </style>
 </head>
 <body>
-
-
-
 
 <?php
 // Inkludera anslutningsfilen till din databas
@@ -26,20 +39,31 @@ include("connection.php");
 $sql = "SELECT name, email, message FROM information";
 $result = $con->query($sql);
 
+// Visa rubriker för tabellen
+echo "<table>";
+echo "<tr><th>Företag</th><th>E-post</th><th>Försäljning utomlands</th></tr>";
+
 // Visa datan på sidan
 if ($result->num_rows > 0) {
-    echo "<h2>Svar från användare:</h2>";
     while ($row = $result->fetch_assoc()) {
-        echo "<p><strong>Namn:</strong> " . $row["name"] . "</p>";
-        echo "<p><strong>E-post:</strong> " . $row["email"] . "</p>";
-        echo "<p><strong>Meddelande:</strong> " . $row["message"] . "</p>";
-        echo "<hr>";
+        echo "<tr>";
+        echo "<td>" . $row["name"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["message"] . "</td>";
+        
+        
+        echo "</tr>";
     }
 } else {
-    echo "<p>Inga svar hittades.</p>";
+    // Inga svar hittades
+    echo "<tr><td colspan='3'>Inga svar hittades.</td></tr>";
 }
 
 // Stäng anslutningen till databasen
 $con->close();
+
+echo "</table>";
 ?>
 
+</body>
+</html>

@@ -115,9 +115,10 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     echo "<h2>Sparad information:</h2>";
     while ($row = $result->fetch_assoc()) {
-        echo "<p><strong>Namn:</strong> " . $row["name"] . "</p>";
+        echo "<p><strong>Företag:</strong> " . $row["name"] . "</p>";
         echo "<p><strong>E-post:</strong> " . $row["email"] . "</p>";
         echo "<p><strong>Meddelande:</strong> " . $row["message"] . "</p>";
+        
         echo "<hr>";
     }
 } else {
